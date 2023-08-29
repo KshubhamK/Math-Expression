@@ -20,7 +20,7 @@ You can download the [Sample APK](https://drive.google.com/file/d/1dh-lcl9pdsdko
 
 **Screenshots**
 
-![alt tag](https://github.com/KshubhamK/Math-Expression/blob/2163e509694969b1cb7936b6044e1c65e5946ce5/screenshots/screen%20one.jpg)
+<img src="https://github.com/KshubhamK/Math-Expression/blob/2163e509694969b1cb7936b6044e1c65e5946ce5/screenshots/screen%20one.jpg" width="300" height="500"/>
 
 <br/>
 

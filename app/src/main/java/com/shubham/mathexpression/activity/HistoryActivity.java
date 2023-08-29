@@ -36,6 +36,9 @@ public class HistoryActivity extends AppCompatActivity {
         initController();
     }
 
+    /**
+     * initializing all
+     */
     private void initController() {
         activity = HistoryActivity.this;
         expressionRepository = new ExpressionRepository(activity);
@@ -44,6 +47,9 @@ public class HistoryActivity extends AppCompatActivity {
         getLiveData();
     }
 
+    /**
+     * This will fetch all the data asynchronously
+     */
     private void getLiveData() {
         resultModelList.clear();
         expressionRepository.getAllExpressions().observe(HistoryActivity.this, new Observer<List<ResultModel>>() {
@@ -66,6 +72,11 @@ public class HistoryActivity extends AppCompatActivity {
         });
     }
 
+
+    /**
+     * data is set to the recyclerview with characterList
+     * @param resultModelList
+     */
     private void setViewToHistoryList(List<ResultModel> resultModelList) {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(activity);
         rvHistory.setLayoutManager(mLayoutManager);

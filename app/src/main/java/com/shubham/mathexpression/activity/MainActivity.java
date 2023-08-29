@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initController();
     }
 
+    /**
+     * asking user to grant permission so that database can be saved on device itself
+     */
     private void getPermission() {
         if (Build.VERSION.SDK_INT < 23 ||
                 ContextCompat.checkSelfPermission(this, "android.permission.READ_EXTERNAL_STORAGE") == 0) {
@@ -69,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * initializing all
+     */
     private void initController() {
         activity = MainActivity.this;
         expressionRepository = new ExpressionRepository(activity);
@@ -83,6 +89,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    /**
+     * onClick listener for buttons
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         int i = view.getId();
@@ -95,12 +105,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * initializing app bar menu item
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * assigning action on app bar menu item
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int i = item.getItemId();
@@ -110,6 +130,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * here I split the user input on the basis of next line
+     * next, for each expression API will called and same expression is pass to the DataModel to save the details
+     */
     private void breakExpression() {
         tvResults.setText("");
         dataModelList = new ArrayList<>();
@@ -131,6 +155,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * here, API is called without waiting response from server side
+     * showText will be pass on the next function
+     * expression will be pass as parameter to the API
+     * @param showText
+     * @param expression
+     */
     private void evaluateResult(String showText, String expression) {
         APIInterface apiInterface = APIClient.getClient(activity).create(APIInterface.class);
         pbLoading.setVisibility(View.VISIBLE);
@@ -158,6 +189,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    /**
+     * response will be shown on the screen
+     * expression will be stored along with result string
+     * @param expression
+     * @param result
+     */
     private void setViewToResult(String expression, String result) {
         DataModel dataModel = new DataModel();
         dataModel.setResultId(id++);

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Math Expression</string>
+    <string name="enter_expression">Enter Expression</string>
+    <string name="Results">Expression Results</string>
+    <string name="history">History</string>
+    <string name="no_record">No Record Found</string>
+</resources>
